@@ -42,7 +42,7 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
             // officially insert the above variable inside every i° element of the HTML
             thisCard[i].appendChild(cardsNode);
         }
-    })/* .catch(error => console.error(error)); */
+    }).catch(error => console.error(error));
 
 
 // functions region
