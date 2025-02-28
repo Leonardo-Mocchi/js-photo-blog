@@ -27,32 +27,25 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
             console.log(thisCard);
 
             // assign the 4 data values to variables through destructuring
-            const [thisCardID, thisCardTitle, thisCardDate, thisCardImgURL] = [thisData.id, thisData.title, thisData.date, thisData.url]; //thisCardDetails
+            const [thisCardID, thisCardTitle, thisCardDate, thisCardImgURL] = [thisData.id, thisData.title, thisData.date, thisData.url];
             console.log(thisCardID, thisCardTitle, thisCardDate, thisCardImgURL);
 
-            // create a variable that adds a <p> HTML element inside
+            // create a variable that adds a <div> HTML element inside
             const cardsNode = document.createElement("div")
-            // make the new paragraph display the generated file
+            // make the new div display the generated datas w/markup
             cardsNode.innerHTML = `
                     <img src="${thisCardImgURL}" alt="">
                     <p class="mt-3 mb-0 google_font_date">${thisCardDate}</p>
                     <h4 class="m-0 google_font_title">${thisCardTitle.toUpperCase()}</h4>`;
-            // fix the margins of the new element
-            /* cardsNode.classList.add('m-0'); */
-
-
             /* console.log(cardsNode); */
 
             // officially insert the above variable inside every i° element of the HTML
             thisCard[i].appendChild(cardsNode);
         }
-
     })/* .catch(error => console.error(error)); */
 
 
-
 // functions region
-
 
 /**
  * Adds the structure of the blog posts
@@ -65,15 +58,3 @@ function addStructure() {
                 </div>
             </div>`
 }
-
-/* function addCardsMarkup() {
-    return `<img src="${thisCardImgURL}" alt="">
-            <p class="">${thisCardDate}</p>
-            <h4>${thisCardTitle}</h4>`
-} */
-
-
-
-
-
-

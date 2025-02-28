@@ -12,7 +12,6 @@ body {
 
 /* #endregion common */
 
-
 /* #region fonts */
 .google_font_title {
     font-family: "Edu TAS Beginner", sans-serif;
@@ -31,6 +30,7 @@ body {
 
 /* #endregion fonts */
 
+/* #region layout */
 #cork_wall {
     background-image: url(../img/cork.png);
     border: 3px solid black;
@@ -57,7 +57,7 @@ body {
     left: 50%;
 }
 
-
+/* #endregion layout */
 
 /* #region media query */
 @media screen and (max-width: 399px) {
@@ -78,8 +78,6 @@ body {
     .my_card {
         padding: 2rem;
     }
-
-
 }
 
 @media screen and (max-width: 767.99px) {
