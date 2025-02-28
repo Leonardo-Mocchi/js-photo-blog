@@ -18,15 +18,13 @@ body {
     font-family: "Edu TAS Beginner", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
-    font-style: normal;
+    /* font-style: oblique 10deg; */
     font-size: 88px;
 }
 
 .google_font_date {
     font-family: "Sometype Mono", monospace;
     font-optical-sizing: auto;
-    /* font-weight: <weight>; */
-    font-style: normal;
 }
 
 /* #endregion fonts */
@@ -36,7 +34,47 @@ body {
     border: 3px solid black;
 }
 
-.my_card {
-    height: 500px;
-    border: 2px solid black;
+#cards_container {
+    padding: 3rem;
 }
+
+.my_card {
+    background-color: aliceblue;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+
+
+/* #region media query */
+
+@media screen and (max-width: 399px) {
+    .google_font_title {
+        font-size: 50px;
+    }
+
+    #cards_container {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 567px) {
+    .google_font_title {
+        font-size: 70px;
+    }
+
+    #cards_container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 767.99px) {
+    .my_card {
+        margin: 3rem;
+    }
+}
+
+/* #endregion media query */
