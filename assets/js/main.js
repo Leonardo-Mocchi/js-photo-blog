@@ -1,11 +1,6 @@
 // assign the DOM node of the container
 const postsEl = document.getElementById("posts_container")
 
-// create 6 posts (to add more, simply edit the 6 below)
-addStructure(6)
-
-// select the DOM node of the single cards created above
-const cardsEl = document.querySelectorAll(".my_card")
 
 // fetch the cards raw details
 fetch("https://lanciweb.github.io/demo/api/pictures/")
@@ -13,6 +8,12 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(data => {
         // log the data to see what we have
         /* console.log(data); */
+
+        // create posts dinamically based on how many are coming from the recource
+        addStructure(data.length)
+
+        // select the DOM node of the single cards created above
+        const cardsEl = document.querySelectorAll(".my_card")
 
         // a loop is used to apply all the incoming data to our posts
         for (let i = 0; i < data.length; i++) {
