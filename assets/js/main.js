@@ -33,16 +33,16 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
             // create a variable that adds a <div> HTML element inside
             const cardsNode = document.createElement("div")
             // make the new div display the generated datas w/markup
-            cardsNode.innerHTML = `
-                    <img class="my_normal_pic" src="${thisCardImgURL}" alt="">
-                    <p class="mt-3 mb-0 google_font_date">${thisCardDate}</p>
-                    <h4 class="m-0 google_font_title">${thisCardTitle.toUpperCase()}</h4>`;
+            cardsNode.innerHTML = addimages(thisCardImgURL, thisCardDate, thisCardTitle)
 
+            const overlayNode = document.createElement("div")
+            overlayNode.innerHTML = addThisOverlay(thisCardImgURL)
 
             /* console.log(cardsNode); */
 
             // officially insert the above variable inside every i° element of the HTML
             thisCard[i].appendChild(cardsNode);
+            thisCard[i].appendChild(overlayNode)
 
         }
 
@@ -84,14 +84,7 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
 
 // overlay region
 
-addOverlays(cardsEl)
-
-
-
-
-
-
-
+/* addOverlays(cardsEl) */
 
 // functions region
 
@@ -114,16 +107,23 @@ function addThisStructure() {
             </div>`
 }
 
-function addOverlays(arr) {
+function addimages(picUrl, Date, Title) {
+    return `<img class="my_normal_pic" src="${picUrl}" alt="">
+             <p class="mt-3 mb-0 google_font_date">${Date}</p>
+             <h4 class="m-0 google_font_title">${Title.toUpperCase()}</h4>`
+}
+
+/* function addOverlays(arr) {
     for (let i = 0; i < arr.length; i++) {
         const thisCard = arr[i];
         thisCard.innerHTML += addThisOverlay()
     }
-}
+} */
 
-function addThisOverlay() {
+function addThisOverlay(sameUrl) {
     return `<div class="my_overlay d-none">
-                <img class="my_overlay_pic" src='https://picsum.photos/400/400' alt='' />
+                <img class="my_overlay_pic" src="${sameUrl}" alt="" />
                 <button class="close_my_overlay bg-transparent btn text-light m-0 p-0" type="button"> <i class="fa-solid fa-xmark"></i> </button>
             </div>`
 }
+
