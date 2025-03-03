@@ -60,6 +60,12 @@ body {
 }
 
 
+.overlay_helper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
 .my_overlay {
     z-index: 10;
     position: fixed;
@@ -96,6 +102,10 @@ body {
 /* #endregion layout */
 
 /* #region hover/active */
+
+.my_card:hover {
+    transform: rotate(10deg);
+}
 
 .my_normal_pic:hover {
     cursor: pointer;

@@ -50,7 +50,9 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
         const closeOverlayEl = document.querySelectorAll(".close_my_overlay")
         const overlayEl = document.querySelectorAll(".my_overlay")
         const overlayPicEl = document.querySelectorAll(".my_overlay_pic")
-        console.log(normalPicEl, closeOverlayEl, overlayEl, overlayPicEl);
+        const cardsEl = document.querySelectorAll(".my_card")
+        console.log(cardsEl);
+        /* console.log(normalPicEl, closeOverlayEl, overlayEl, overlayPicEl); */
 
         picOverlayOpen(normalPicEl)
 
@@ -61,6 +63,7 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
                 console.log(thisPic);
 
                 thisPic.addEventListener("click", () => {
+                    cardsEl[i].classList.remove("position-relative")
                     overlayEl[i].classList.remove("d-none")
                 })
             }
@@ -75,6 +78,7 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
 
                 thisCloseButton.addEventListener("click", () => {
                     overlayEl[i].classList.add("d-none")
+                    cardsEl[i].classList.add("position-relative")
                 })
             }
         }
@@ -101,7 +105,7 @@ function addStructure(num) {
  */
 function addThisStructure() {
     return `<div class="col">
-                <div class="my_card p-3 m-0">
+                <div class="my_card position-relative p-3 m-0">
                     <img class="pin" src="./assets/img/pin.svg" alt="">
                 </div>
             </div>`
@@ -121,9 +125,11 @@ function addimages(picUrl, Date, Title) {
 } */
 
 function addThisOverlay(sameUrl) {
-    return `<div class="my_overlay d-none">
-                <img class="my_overlay_pic" src="${sameUrl}" alt="" />
-                <button class="close_my_overlay bg-transparent btn text-light m-0 p-0" type="button"> <i class="fa-solid fa-xmark"></i> </button>
+    return `<div class="overlay_helper">
+                <div class="my_overlay d-none">
+                    <img class="my_overlay_pic" src="${sameUrl}" alt="" />
+                    <button class="close_my_overlay bg-transparent btn text-light m-0 p-0" type="button"> <i class="fa-solid fa-xmark"></i> </button>
+                </div>
             </div>`
 }
 
