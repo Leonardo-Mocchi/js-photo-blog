@@ -45,6 +45,14 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
     }).catch(error => console.error(error));
 
 
+// overlay region
+const closeOverlayEl = document.getElementById("close_my_overlay")
+const overlayEl = document.getElementById("myOverlay")
+
+closeOverlayEl.addEventListener("click", () => {
+    overlayEl.classList.add("d-none")
+})
+
 // functions region
 
 /**
