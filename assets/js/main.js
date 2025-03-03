@@ -46,12 +46,12 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
 
 
 // overlay region
-const closeOverlayEl = document.getElementById("close_my_overlay")
-const overlayEl = document.getElementById("myOverlay")
+/* const closeOverlayEl = document.getElementById("close_my_overlay")
+const overlayEl = document.querySelectorAll(".my_overlay")
 
 closeOverlayEl.addEventListener("click", () => {
     overlayEl.classList.add("d-none")
-})
+}) */
 
 // functions region
 

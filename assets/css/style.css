@@ -44,6 +44,7 @@ body {
     position: relative;
     background-color: aliceblue;
     box-shadow: 2px 2px 5px black;
+    margin: 3rem;
 
     img {
         max-width: 100%;
@@ -57,6 +58,7 @@ body {
     top: 1%;
     left: 50%;
 }
+
 
 .my_overlay {
     z-index: 10;
@@ -73,19 +75,43 @@ body {
         transform: translateX(-50%) translateY(-50%);
         opacity: 1 !important;
     }
+}
 
-    #close_my_overlay {
-        position: relative;
-        z-index: 100;
-        float: inline-end;
+.close_my_overlay {
+    z-index: 1000;
+    position: absolute;
+    z-index: 100;
+    font-size: 4rem;
+
+    i {
+        width: 6rem;
+        height: 6rem;
     }
 }
 
 
-
 /* #endregion layout */
 
+/* #region buttons */
+.close_my_overlay:hover {
+    cursor: pointer;
+    font-size: 50px;
+    font-size: 5rem;
+    transition: all .5s;
+    transform: rotate(90deg);
+}
+
+.my_overlay_pic:hover {
+    transition: all .5s;
+    zoom: 80%;
+}
+
+
+/* #endregion buttons */
+
 /* #region media query */
+
+/* from 0 to very small */
 @media screen and (max-width: 399px) {
     #giga_title {
         font-size: 50px;
@@ -94,9 +120,15 @@ body {
     .my_card {
         padding: 1rem;
     }
+
+    .close_my_overlay {
+        top: 13%;
+        right: 0;
+    }
 }
 
-@media screen and (min-width: 400px) and (max-width: 567px) {
+/* from very small to phone */
+@media screen and (min-width: 400px) and (max-width: 566.99px) {
     #giga_title {
         font-size: 70px;
     }
@@ -104,11 +136,54 @@ body {
     .my_card {
         padding: 2rem;
     }
+
+    .close_my_overlay {
+        top: 13%;
+        right: 0;
+    }
+
+    .my_overlay_pic:hover {
+        zoom: 100%;
+    }
 }
 
-@media screen and (max-width: 767.99px) {
-    .my_card {
-        margin: 3rem;
+/* from phone tp tablet */
+@media screen and (min-width: 567px) and (max-width: 767.99px) {
+
+    .close_my_overlay {
+        top: 14%;
+        right: 5%;
+    }
+
+    .my_overlay_pic:hover {
+        zoom: 110%;
+    }
+}
+
+/* from tablet to desktop */
+@media screen and (min-width:768px) and (max-width: 991.99px) {
+
+    .close_my_overlay {
+        top: 14%;
+        right: 3%;
+    }
+
+    .my_overlay_pic:hover {
+        zoom: 130%;
+    }
+}
+
+/* from desktop up */
+@media screen and (min-width: 992px) {
+
+    .close_my_overlay {
+        cursor: pointer;
+        top: 15%;
+        right: 12%;
+    }
+
+    .my_overlay_pic:hover {
+        zoom: 150%;
     }
 }
 
