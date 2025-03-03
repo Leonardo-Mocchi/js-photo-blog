@@ -1,15 +1,15 @@
 // assign the DOM node of the container
 const postsEl = document.getElementById("posts_container")
 
-// create 6 posts
-for (let i = 0; i < 6; i++) {
-    //create posts by adding them as HTML
-    postsEl.innerHTML += addStructure()
-}
+// create 6 posts (to add more, simply edit the 6 below)
+addStructure(6)
 
 // select the DOM node of the single cards created above
 const cardsEl = document.querySelectorAll(".my_card")
 /* console.log(cardsEl); */
+
+
+
 
 // fetch the cards raw details
 fetch("https://lanciweb.github.io/demo/api/pictures/")
@@ -17,6 +17,10 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(data => {
         // log the data to see what we have
         /* console.log(data); */
+
+        const myPictures = []
+        console.log(myPictures);
+
 
         // show single posts using a loot  (through a loop) the posts value saving it in a variable
         for (let i = 0; i < data.length; i++) {
@@ -34,42 +38,95 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
             const cardsNode = document.createElement("div")
             // make the new div display the generated datas w/markup
             cardsNode.innerHTML = `
-                    <img src="${thisCardImgURL}" alt="">
+                    <img class="my_normal_pic" src="${thisCardImgURL}" alt="">
                     <p class="mt-3 mb-0 google_font_date">${thisCardDate}</p>
                     <h4 class="m-0 google_font_title">${thisCardTitle.toUpperCase()}</h4>`;
+
+
             /* console.log(cardsNode); */
 
             // officially insert the above variable inside every i° element of the HTML
             thisCard[i].appendChild(cardsNode);
+
+            const normalPic = document.querySelectorAll(".my_normal_pic")
+            console.log(normalPic);
+            myPictures.push(normalPic)
         }
     }).catch(error => console.error(error));
 
 
 // overlay region
-const closeOverlayEl = document.querySelector(".close_my_overlay")
-const overlayEl = document.querySelector(".my_overlay")
-const overlayPicEl = document.querySelector(".my_overlay_pic")
-const normalPicEl = document.querySelector(".my_normal_pic")
-console.log(closeOverlayEl, overlayEl, overlayPicEl, normalPicEl);
 
-normalPicEl.addEventListener("click", () => {
-    overlayEl.classList.remove("d-none")
-})
+addOverlays(cardsEl)
 
-closeOverlayEl.addEventListener("click", () => {
-    overlayEl.classList.add("d-none")
-})
+const closeOverlayEl = document.querySelectorAll(".close_my_overlay")
+const overlayEl = document.querySelectorAll(".my_overlay")
+const overlayPicEl = document.querySelectorAll(".my_overlay_pic")
+/* const normalPicEl = document.querySelectorAll(".my_normal_pic") */
+/* console.log(closeOverlayEl, overlayEl, overlayPicEl, normalPicEl); */
+/* console.log(normalPicEl); */
+
+
+
+/* picOverlayOpen(normalPicEl)
+
+function picOverlayOpen(arr) {
+
+    for (let i = 0; i < arr.length; i++) {
+        const thisPic = arr[i];
+        console.log(thisPic);
+
+        thisPic.addEventListener("click", () => {
+            overlayEl[i].classList.remove("d-none")
+            
+        })
+    }
+} */
+
+/* picOverlayClose(closeOverlayEl)
+
+function picOverlayClose(arr) {
+
+    for (let i = 0; i < arr.length; i++) {
+        const thisCloseButton = arr[i];
+
+        thisCloseButton.addEventListener("click", () => {
+            overlayEl.classList.add("d-none")
+        })
+    }
+} */
 
 // functions region
+
+function addStructure(num) {
+    for (let i = 0; i < num; i++) {
+        //create posts by adding them as HTML
+        postsEl.innerHTML += addThisStructure()
+    }
+}
 
 /**
  * Adds the structure of the blog posts
  * @returns {string} HTML structure
  */
-function addStructure() {
+function addThisStructure() {
     return `<div class="col">
                 <div class="my_card p-3 m-0">
                     <img class="pin" src="./assets/img/pin.svg" alt="">
                 </div>
+            </div>`
+}
+
+function addOverlays(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const thisCard = arr[i];
+        thisCard.innerHTML += addThisOverlay()
+    }
+}
+
+function addThisOverlay() {
+    return `<div class="my_overlay d-none">
+                <img class="my_overlay_pic" src='https://picsum.photos/400/400' alt='' />
+                <button class="close_my_overlay bg-transparent btn text-light m-0 p-0" type="button"> <i class="fa-solid fa-xmark"></i> </button>
             </div>`
 }

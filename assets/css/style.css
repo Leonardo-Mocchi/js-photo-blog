@@ -95,6 +95,11 @@ body {
 /* #endregion layout */
 
 /* #region hover/active */
+
+.my_normal_pic:hover {
+    cursor: pointer;
+}
+
 .close_my_overlay:hover {
     cursor: pointer;
     font-size: 5rem;
