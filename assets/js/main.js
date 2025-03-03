@@ -9,26 +9,26 @@ for (let i = 0; i < 6; i++) {
 
 // select the DOM node of the single cards created above
 const cardsEl = document.querySelectorAll(".my_card")
-console.log(cardsEl);
+/* console.log(cardsEl); */
 
 // fetch the cards raw details
 fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(response => response.json())
     .then(data => {
         // log the data to see what we have
-        console.log(data);
+        /* console.log(data); */
 
         // show single posts using a loot  (through a loop) the posts value saving it in a variable
         for (let i = 0; i < data.length; i++) {
             const thisData = data[i];
-            console.log(thisData);
+            /* console.log(thisData); */
 
             const thisCard = document.querySelectorAll(".my_card")
-            console.log(thisCard);
+            /* console.log(thisCard); */
 
             // assign the 4 data values to variables through destructuring
             const [thisCardID, thisCardTitle, thisCardDate, thisCardImgURL] = [thisData.id, thisData.title, thisData.date, thisData.url];
-            console.log(thisCardID, thisCardTitle, thisCardDate, thisCardImgURL);
+            /* console.log(thisCardID, thisCardTitle, thisCardDate, thisCardImgURL); */
 
             // create a variable that adds a <div> HTML element inside
             const cardsNode = document.createElement("div")
@@ -46,12 +46,19 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
 
 
 // overlay region
-/* const closeOverlayEl = document.getElementById("close_my_overlay")
-const overlayEl = document.querySelectorAll(".my_overlay")
+const closeOverlayEl = document.querySelector(".close_my_overlay")
+const overlayEl = document.querySelector(".my_overlay")
+const overlayPicEl = document.querySelector(".my_overlay_pic")
+const normalPicEl = document.querySelector(".my_normal_pic")
+console.log(closeOverlayEl, overlayEl, overlayPicEl, normalPicEl);
+
+normalPicEl.addEventListener("click", () => {
+    overlayEl.classList.remove("d-none")
+})
 
 closeOverlayEl.addEventListener("click", () => {
     overlayEl.classList.add("d-none")
-}) */
+})
 
 // functions region
 

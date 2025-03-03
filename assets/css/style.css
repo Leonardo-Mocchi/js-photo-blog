@@ -66,15 +66,16 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
+}
 
-    .my_overlay_pic {
-        z-index: 100;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        opacity: 1 !important;
-    }
+.my_overlay_pic {
+    z-index: 100;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .close_my_overlay {
@@ -82,6 +83,7 @@ body {
     position: absolute;
     z-index: 100;
     font-size: 4rem;
+    border: none;
 
     i {
         width: 6rem;
@@ -92,27 +94,37 @@ body {
 
 /* #endregion layout */
 
-/* #region buttons */
+/* #region hover/active */
 .close_my_overlay:hover {
     cursor: pointer;
-    font-size: 50px;
     font-size: 5rem;
     transition: all .5s;
     transform: rotate(90deg);
 }
 
-.my_overlay_pic:hover {
-    transition: all .5s;
-    zoom: 80%;
+.close_my_overlay:active {
+    cursor: pointer;
+    font-size: 4.5rem;
+    transition: all .1s;
+    transform: rotate(-90deg);
 }
 
+.my_overlay_pic:hover {
+    cursor: zoom-out;
+}
 
-/* #endregion buttons */
+.my_overlay_pic:active {
+    transition: all .5 transition: all .5s;
+    s;
+    zoom: 75%;
+}
+
+/* #endregion hover */
 
 /* #region media query */
 
 /* from 0 to very small */
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 399.99px) {
     #giga_title {
         font-size: 50px;
     }
@@ -143,7 +155,12 @@ body {
     }
 
     .my_overlay_pic:hover {
+        cursor: unset;
+    }
+
+    .my_overlay_pic:active {
         zoom: 100%;
+        transition: all .5s;
     }
 }
 
@@ -156,7 +173,12 @@ body {
     }
 
     .my_overlay_pic:hover {
+        cursor: zoom-in;
+    }
+
+    .my_overlay_pic:active {
         zoom: 110%;
+        transition: all .5s;
     }
 }
 
@@ -169,7 +191,12 @@ body {
     }
 
     .my_overlay_pic:hover {
+        cursor: zoom-in;
+    }
+
+    .my_overlay_pic:active {
         zoom: 130%;
+        transition: all .5s;
     }
 }
 
@@ -183,7 +210,12 @@ body {
     }
 
     .my_overlay_pic:hover {
+        cursor: zoom-in;
+    }
+
+    .my_overlay_pic:active {
         zoom: 150%;
+        transition: all .5s;
     }
 }
 
